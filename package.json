@@ -1,0 +1,27 @@
+{
+	"name": "lean-block-theme",
+	"version": "1.0.0",
+	"private": true,
+	"description": "A lean WordPress block theme starter with custom server-rendered Gutenberg blocks.",
+	"type": "module",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"dev": "node scripts/build.mjs --watch",
+		"format": "prettier --write \"src/**/*.{js,jsx}\" \"scripts/*.mjs\""
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "^4.3.3",
+		"prettier": "npm:wp-prettier@^3.0.3",
+		"tailwindcss": "^4.3.3",
+		"vite": "^8.3.5"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jwywiol/lean-block-theme.git"
+	},
+	"author": "Jakub Wywioł"
+}

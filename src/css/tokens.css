@@ -1,0 +1,43 @@
+/*
+ * Tailwind theme mapped onto the CSS custom properties WordPress generates
+ * from theme.json, so theme.json stays the single source of design tokens.
+ *
+ * `inline` makes utilities use the WordPress variables directly
+ * (.text-primary { color: var(--wp--preset--color--primary) }), so no extra
+ * Tailwind variables are printed. Change a colour in theme.json or in the Site
+ * Editor and every utility follows.
+ *
+ * Imported with @reference, so this file never emits CSS on its own.
+ */
+@theme inline {
+	--color-*: initial;
+	--color-base: var(--wp--preset--color--base);
+	--color-surface: var(--wp--preset--color--surface);
+	--color-border: var(--wp--preset--color--border);
+	--color-muted: var(--wp--preset--color--muted);
+	--color-contrast: var(--wp--preset--color--contrast);
+	--color-primary: var(--wp--preset--color--primary);
+	--color-primary-soft: var(--wp--preset--color--primary-soft);
+	--color-current: currentColor;
+	--color-transparent: transparent;
+
+	--font-*: initial;
+	--font-sans: var(--wp--preset--font-family--sans);
+
+	--text-*: initial;
+	--text-sm: var(--wp--preset--font-size--small);
+	--text-base: var(--wp--preset--font-size--medium);
+	--text-lg: var(--wp--preset--font-size--large);
+	--text-xl: var(--wp--preset--font-size--x-large);
+	--text-2xl: var(--wp--preset--font-size--xx-large);
+	--text-3xl: var(--wp--preset--font-size--huge);
+
+	--radius-*: initial;
+	--radius-sm: var(--wp--custom--radius--small);
+	--radius-md: var(--wp--custom--radius--medium);
+	--radius-lg: var(--wp--custom--radius--large);
+	--radius-full: var(--wp--custom--radius--full);
+
+	--container-content: var(--wp--style--global--content-size);
+	--container-wide: var(--wp--style--global--wide-size);
+}

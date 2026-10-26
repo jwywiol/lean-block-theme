@@ -1,0 +1,11 @@
+.lean-cta {
+	padding-block: var(--wp--preset--spacing--70);
+}
+
+.lean-cta:not(.lean-cta--split) .lean-buttons {
+	justify-content: center;
+}
+
+.lean-cta--split .lean-buttons {
+	flex: none;
+}

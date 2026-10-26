@@ -1,0 +1,28 @@
+/*
+ * Global stylesheet, loaded on every page and in the editor canvas.
+ *
+ * There is no Tailwind preflight on purpose: it would reset the lists, headings
+ * and margins of core blocks inside post content. theme.json already styles
+ * the elements, and base.css adds only what theme.json cannot express.
+ *
+ * All Tailwind utilities live here, in one file, including the ones used in
+ * block markup. Per-block utility files look leaner, but they break the
+ * cascade: each file redefines shared classes, so a later block's
+ * `sm:grid-cols-3` lands after an earlier block's `lg:grid-cols-6` and wins at
+ * every width. Block stylesheets therefore hold component CSS only.
+ *
+ * The utilities are printed without a cascade layer. WordPress prints its own
+ * styles unlayered too, and unlayered CSS always wins over layered CSS,
+ * regardless of specificity.
+ */
+@reference "tailwindcss";
+@reference "./tokens.css";
+
+@import "./base.css";
+@import "./components.css";
+
+@tailwind utilities source(none);
+@source "../blocks/**/*.php";
+@source "../../parts";
+@source "../../templates";
+@source "../../patterns";

@@ -1,0 +1,17 @@
+/*
+Theme Name: Lean Block Theme
+Theme URI: https://github.com/jwywiol/lean-block-theme
+Author: Jakub Wywioł
+Author URI: https://github.com/jwywiol
+Description: A lean block theme starter: six custom server-rendered Gutenberg blocks, theme.json as the single source of design tokens, block CSS loaded only where the block is used (Tailwind CSS v4 + Vite), and no plugins required.
+Requires at least: 6.8
+Tested up to: 7.1
+Requires PHP: 8.1
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lean-block-theme
+Tags: full-site-editing, block-patterns, custom-colors, editor-style, one-column, wide-blocks
+*/
+
+/* Intentionally empty. Styles live in theme.json, build/css/global.css and per-block style.css files. */

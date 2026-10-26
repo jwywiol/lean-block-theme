@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lean/testimonials",
+	"title": "Testimonials slider",
+	"category": "lean",
+	"icon": "format-quote",
+	"description": "Customer quotes in a CSS scroll-snap slider. About 1 kB of JavaScript, only for the arrow buttons.",
+	"keywords": [ "reviews", "quotes", "carousel" ],
+	"textdomain": "lean-block-theme",
+	"attributes": {
+		"align": { "type": "string", "default": "full" },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "What our clients say" },
+		"titleTag": { "type": "string", "enum": [ "h2", "h3", "h4" ], "default": "h2" },
+		"intro": { "type": "string", "default": "" },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "quote": "A short, specific quote works better than a long, general one.", "name": "Client name", "role": "Role, Company", "imageId": 0 },
+				{ "quote": "Mention a concrete result if you can.", "name": "Client name", "role": "Role, Company", "imageId": 0 }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"quote": { "type": "string" },
+					"name": { "type": "string" },
+					"role": { "type": "string" },
+					"imageId": { "type": "integer" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": [ "top", "bottom" ] }
+	},
+	"editorScript": "file:./editor.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

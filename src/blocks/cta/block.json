@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lean/cta",
+	"title": "Call to action",
+	"category": "lean",
+	"icon": "megaphone",
+	"description": "A full-width band with a heading, short text and up to two buttons. Text and buttons adapt to dark backgrounds automatically.",
+	"keywords": [ "cta", "banner", "contact" ],
+	"textdomain": "lean-block-theme",
+	"attributes": {
+		"align": { "type": "string", "default": "full" },
+		"backgroundColor": { "type": "string", "default": "primary" },
+		"layout": { "type": "string", "enum": [ "center", "split" ], "default": "center" },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "Ready to start?" },
+		"titleTag": { "type": "string", "enum": [ "h2", "h3", "h4" ], "default": "h2" },
+		"intro": { "type": "string", "default": "Tell people what happens after they click." },
+		"primaryText": { "type": "string", "default": "Contact us" },
+		"primaryUrl": { "type": "string", "default": "#" },
+		"secondaryText": { "type": "string", "default": "" },
+		"secondaryUrl": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": [ "top", "bottom" ], "padding": [ "top", "bottom" ] }
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

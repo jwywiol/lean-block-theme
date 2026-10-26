@@ -1,0 +1,150 @@
+.lean-logos {
+	padding-block: var(--wp--preset--spacing--60);
+}
+
+.lean-logos__title {
+	margin: 0 0 var(--wp--preset--spacing--50);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-align: center;
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+
+.lean-logos__list {
+	gap: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50);
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lean-logos__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+}
+
+.lean-logos__link {
+	display: inline-flex;
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Fixed height, width from the image's own aspect ratio (width/height attributes). */
+.lean-logos__image {
+	display: block;
+	width: auto;
+	max-width: 9rem;
+	height: 2.25rem;
+	object-fit: contain;
+}
+
+.lean-logos__wordmark {
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	white-space: nowrap;
+	opacity: 0.75;
+}
+
+.lean-logos--grayscale .lean-logos__image {
+	filter: grayscale(1);
+	opacity: 0.7;
+	transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.lean-logos--grayscale .lean-logos__link:is(:hover, :focus-visible) .lean-logos__image {
+	filter: none;
+	opacity: 1;
+}
+
+/* Marquee: two identical lists, each moving by its own width. */
+.lean-logos__marquee {
+	--lean-marquee-gap: var(--wp--preset--spacing--60);
+	display: flex;
+	gap: var(--lean-marquee-gap);
+	overflow: hidden;
+	mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.lean-logos__marquee .lean-logos__list {
+	display: flex;
+	flex: none;
+	gap: var(--lean-marquee-gap);
+	min-width: 100%;
+	justify-content: space-around;
+	animation: lean-marquee 32s linear infinite;
+}
+
+.lean-logos__marquee:is(:hover, :focus-within) .lean-logos__list,
+.lean-logos:has(.lean-logos__pause input:checked) .lean-logos__list {
+	animation-play-state: paused;
+}
+
+/* Pause / play toggle: a visually hidden checkbox inside a round label. */
+.lean-logos .lean-container {
+	position: relative;
+}
+
+.lean-logos__pause {
+	position: absolute;
+	top: 0;
+	right: var(--wp--style--root--padding-right, 1.25rem);
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	border: 1.5px solid color-mix(in srgb, currentColor 25%, transparent);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.lean-logos__pause:has(input:focus-visible) {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* Two bars (pause); a triangle (play) once paused. */
+.lean-logos__pause-icon {
+	width: 0.625rem;
+	height: 0.75rem;
+	border-inline: 3px solid currentColor;
+}
+
+.lean-logos__pause:has(input:checked) .lean-logos__pause-icon {
+	width: 0;
+	height: 0;
+	border-block: 0.4rem solid transparent;
+	border-inline: 0.65rem solid currentColor;
+	border-inline-end-width: 0;
+	translate: 0.1rem 0;
+}
+
+@keyframes lean-marquee {
+	to {
+		translate: calc(-100% - var(--lean-marquee-gap)) 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lean-logos__marquee {
+		flex-wrap: wrap;
+		justify-content: center;
+		mask-image: none;
+	}
+
+	.lean-logos__marquee .lean-logos__list {
+		flex-wrap: wrap;
+		justify-content: center;
+		min-width: 0;
+		animation: none;
+	}
+
+	.lean-logos__marquee .lean-logos__list[aria-hidden],
+	.lean-logos__pause {
+		display: none;
+	}
+}

@@ -1,0 +1,101 @@
+.lean-faq__header {
+	align-self: start;
+}
+
+@media (width >= 64rem) {
+	.lean-faq__header {
+		position: sticky;
+		top: calc(var(--wp-admin--admin-bar--height, 0px) + 6rem);
+	}
+}
+
+.lean-faq__item {
+	border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.lean-faq__item:first-child {
+	border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.lean-faq__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--40);
+	padding-block: var(--wp--preset--spacing--40);
+	cursor: pointer;
+	list-style: none;
+}
+
+.lean-faq__summary::-webkit-details-marker {
+	display: none;
+}
+
+.lean-faq__question {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
+	line-height: 1.35;
+	letter-spacing: -0.01em;
+}
+
+/* Plus that turns into a minus. Two pseudo-elements, no icon font or SVG. */
+.lean-faq__icon {
+	position: relative;
+	flex: none;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 50%;
+	background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.lean-faq__icon::before,
+.lean-faq__icon::after {
+	content: "";
+	position: absolute;
+	inset: 50% auto auto 50%;
+	width: 0.75rem;
+	height: 2px;
+	border-radius: 1px;
+	background: currentColor;
+	translate: -50% -50%;
+	transition: rotate 0.25s ease;
+}
+
+.lean-faq__icon::after {
+	rotate: 90deg;
+}
+
+.lean-faq__item[open] .lean-faq__icon::after {
+	rotate: 0deg;
+}
+
+.lean-faq__answer {
+	padding-block-end: var(--wp--preset--spacing--40);
+	padding-inline-end: 3rem;
+	opacity: 0.85;
+}
+
+.lean-faq__answer > :first-child {
+	margin-block-start: 0;
+}
+
+.lean-faq__answer > :last-child {
+	margin-block-end: 0;
+}
+
+/*
+ * Animated open/close where supported (::details-content and
+ * interpolate-size, set in base.css). Elsewhere the item opens instantly.
+ */
+@supports selector(::details-content) {
+	.lean-faq__item::details-content {
+		block-size: 0;
+		overflow: clip;
+		transition: block-size 0.3s ease, content-visibility 0.3s allow-discrete;
+	}
+
+	.lean-faq__item[open]::details-content {
+		block-size: auto;
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lean/faq",
+	"title": "FAQ",
+	"category": "lean",
+	"icon": "editor-help",
+	"description": "Questions and answers as a native <details> accordion (no JavaScript), with FAQPage structured data.",
+	"keywords": [ "questions", "accordion", "schema" ],
+	"textdomain": "lean-block-theme",
+	"attributes": {
+		"align": { "type": "string", "default": "full" },
+		"eyebrow": { "type": "string", "default": "FAQ" },
+		"title": { "type": "string", "default": "Frequently asked questions" },
+		"titleTag": { "type": "string", "enum": [ "h2", "h3", "h4" ], "default": "h2" },
+		"intro": { "type": "string", "default": "" },
+		"questionTag": { "type": "string", "enum": [ "none", "h3", "h4" ], "default": "none" },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "question": "What is your first question?", "answer": "Write a short, direct answer. Plain text, line breaks become paragraphs." },
+				{ "question": "And the second one?", "answer": "Keep each answer focused on one thing." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"question": { "type": "string" },
+					"answer": { "type": "string" }
+				}
+			}
+		},
+		"openFirst": { "type": "boolean", "default": false },
+		"exclusive": { "type": "boolean", "default": true },
+		"schema": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": [ "top", "bottom" ] }
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

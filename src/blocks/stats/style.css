@@ -1,0 +1,40 @@
+.lean-stats__list {
+	margin: 0;
+}
+
+/* Number above the label, while the DOM keeps the dt -> dd order. */
+.lean-stats__item {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: var(--wp--preset--spacing--20);
+	padding-block-start: var(--wp--preset--spacing--40);
+	border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.lean-stats__label {
+	opacity: 0.75;
+}
+
+.lean-stats__value {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--huge);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.04em;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Both copies share one grid cell; the hidden one fixes the width. */
+.lean-stats__number {
+	display: inline-grid;
+	text-align: end;
+}
+
+.lean-stats__number > * {
+	grid-area: 1 / 1;
+}
+
+.lean-stats__ghost {
+	visibility: hidden;
+}

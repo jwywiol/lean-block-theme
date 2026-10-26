@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lean/hero",
+	"title": "Hero",
+	"category": "lean",
+	"icon": "cover-image",
+	"description": "Opening section with a headline, lead text, up to two buttons and an optional image.",
+	"keywords": [ "banner", "header", "intro" ],
+	"textdomain": "lean-block-theme",
+	"attributes": {
+		"align": { "type": "string", "default": "full" },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "A clear headline that says what you do" },
+		"titleTag": { "type": "string", "enum": [ "h1", "h2" ], "default": "h1" },
+		"intro": { "type": "string", "default": "One or two sentences on who it is for and why it matters." },
+		"primaryText": { "type": "string", "default": "Get started" },
+		"primaryUrl": { "type": "string", "default": "#" },
+		"secondaryText": { "type": "string", "default": "" },
+		"secondaryUrl": { "type": "string", "default": "" },
+		"imageId": { "type": "integer", "default": 0 }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": [ "top", "bottom" ] }
+	},
+	"example": {
+		"attributes": {
+			"eyebrow": "New",
+			"title": "Websites that load before the coffee cools",
+			"intro": "Custom blocks, no page builder, and a performance budget you can see."
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

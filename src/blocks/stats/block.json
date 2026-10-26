@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lean/stats",
+	"title": "Stats",
+	"category": "lean",
+	"icon": "chart-bar",
+	"description": "Key numbers that count up when scrolled into view. The final values are in the HTML, so they work without JavaScript and for search engines.",
+	"keywords": [ "numbers", "counter", "figures" ],
+	"textdomain": "lean-block-theme",
+	"attributes": {
+		"align": { "type": "string", "default": "full" },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "In numbers" },
+		"titleTag": { "type": "string", "enum": [ "h2", "h3", "h4" ], "default": "h2" },
+		"intro": { "type": "string", "default": "" },
+		"animate": { "type": "boolean", "default": true },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "value": "120", "prefix": "", "suffix": "+", "label": "Projects delivered" },
+				{ "value": "98", "prefix": "", "suffix": "%", "label": "Clients who come back" },
+				{ "value": "4.9", "prefix": "", "suffix": "/5", "label": "Average rating" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"value": { "type": "string" },
+					"prefix": { "type": "string" },
+					"suffix": { "type": "string" },
+					"label": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": [ "top", "bottom" ], "padding": [ "top", "bottom" ] }
+	},
+	"editorScript": "file:./editor.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}
